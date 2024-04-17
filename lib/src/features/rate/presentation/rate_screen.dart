@@ -162,7 +162,7 @@ class _RateScreenState extends State<RateScreen> {
                               'Ýyllyk',
                             ],
                             controller: GroupButtonController(
-                              // selectedIndex: 0,
+                              selectedIndex: 0,
                             ),
                             onSelected: (value, index, isSelected) {
                               print('$value button is selected');
