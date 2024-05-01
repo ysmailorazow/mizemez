@@ -21,7 +21,7 @@ const Map<String, String> ruRu = {
   r'help_info': r'Помощь и информация',
   r'hotline': r'Позвонить',
   r'sign_in': r'Войти',
-  r'create_account': r'Создать аккаунт',
+  r'sign_up': r'Создать аккаунт',
   r'contact_us': r'Связаться с нами',
   r'privacy_policy': r'Политика Конфиденциальности',
   r'terms_conditions': r'Условия использования',

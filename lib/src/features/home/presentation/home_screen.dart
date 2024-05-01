@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:x_market/src/theme/constants/app_colors.dart';
 import 'package:x_market/src/features/home/presentation/widget/grid_content_widget.dart';
 import '../../../utils/constants/app_assets.dart';
@@ -25,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
             slivers: [
                SliverAppBar(
                  backgroundColor:Theme.of(context).colorScheme.primary,
-                expandedHeight: 270,
+                expandedHeight: 270.h,
                 floating: true,
                 title:Image.asset(
                   AppAssets.logo_miz,
-                  height: 60,
-                  width: 150,
+                  height: 60.h,
+                  width: 150.w,
                 ),
                 actions: const [
                    Icon(Icons.person,color: AppColors.white,),
@@ -42,14 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         (BuildContext context, int index, int realIndex) {
                       return Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           color: Colors.amber,
                         ),
-                        width: 360,
+                        width: 330.w,
+                        height: 110.h,
                       );
                     },
                     options: CarouselOptions(
-                      height: 150,
+                      height: 150.h,
                       viewportFraction: 0.9,
                     ),
                   ),
@@ -59,26 +61,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   decoration:BoxDecoration(
                     border: Border.all(color: Theme.of(context).colorScheme.background),
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(30),
-                          topLeft: Radius.circular(30)),
+                      borderRadius:  BorderRadius.only(
+                          topRight: Radius.circular(30.r),
+                          topLeft: Radius.circular(30.r)),
                       color: Theme.of(context).colorScheme.background),
                   alignment: Alignment.centerLeft,
                   // height: 200,
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 15.0, top: 15),
+                  child:  Padding(
+                    padding: EdgeInsets.only(left: 15.r, top: 15.r),
                     child: Column(
                       // mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Which level are you?',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(height: 10.h,),
                         Text(
                           'Select from below.',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
                         ),
                       ],
                     ),

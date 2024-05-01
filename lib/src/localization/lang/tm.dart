@@ -21,7 +21,7 @@ const Map<String, String> tmTm = {
   r'help_info': r'Kömek we informasiýa',
   r'hotline': r'Jaň ediň',
   r'sign_in': r'Ulgama girmek',
-  r'create_account': r'Akkaunt döretmek',
+  r'sign_up': r'Akkaunt döretmek',
   r'contact_us': r'Habarlaşmak',
   r'privacy_policy': r'Gizlinlik syýasaty',
   r'terms_conditions': r'Ulanmagyň esaslary',
@@ -118,4 +118,15 @@ const Map<String, String> tmTm = {
   r'download_started': r'Ýüklenýär',
   r'wait': r'Garaşyň',
   r'files': r'Faýllar',
+  r'join': r'Join Mizemez Community',
+  r'subscribe': r'Subscribe quickly with us',
+  r'name': r'Ady',
+  r'surname': r'Familiýasy',
+  r'welaýat': r'Welaýaty',
+
+
+
+
+
+
 };

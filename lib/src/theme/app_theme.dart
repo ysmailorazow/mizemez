@@ -37,12 +37,16 @@ class AppTheme {
       onPrimary: AppColors.white,
       background: AppColors.extraLightGrey,
       surface: AppColors.lightBlueGrey,
-      secondary: AppColors.lightGreen,
+      secondary: AppColors.green,
       tertiary: AppColors.grey,
       shadow: AppColors.lightGrey,
       primaryContainer: AppColors.brown,
       secondaryContainer: AppColors.white,
       surfaceVariant: AppColors.green,
+      inverseSurface: AppColors.test_grey,
+      onBackground: AppColors.white,
+      onSurface: AppColors.black,
+      onTertiary: AppColors.red
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -53,6 +57,7 @@ class AppTheme {
         ),
         backgroundColor: AppColors.green,
         foregroundColor: AppColors.extraLightGrey,
+        textStyle: TextStyle(color: AppColors.white),
         fixedSize: const Size.fromHeight(AppDimensions.buttonHeight),
         elevation: 1.0,
       ),
@@ -75,7 +80,7 @@ class AppTheme {
         return AppColors.green;
       }),
     ),
-    dividerColor: AppColors.lightGreen,
+    dividerColor: AppColors.green,
     dividerTheme: const DividerThemeData(
       color: AppColors.lightGreen,
     ),
@@ -94,11 +99,11 @@ class AppTheme {
             right: Radius.circular(AppDimensions.borderRadiusMedium),
           )),
       filled: true,
-      fillColor: AppColors.lightGreen,
+      fillColor: AppColors.green,
       enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             width: 1.5,
-            color: AppColors.lightGreen,
+            color: AppColors.green,
           ),
           borderRadius: BorderRadius.horizontal(
             left: Radius.circular(AppDimensions.borderRadiusMedium),
@@ -107,7 +112,7 @@ class AppTheme {
       border: const OutlineInputBorder(
           borderSide: BorderSide(
             width: 1.5,
-            color: AppColors.lightGreen,
+            color: AppColors.green,
           ),
           borderRadius: BorderRadius.horizontal(
             left: Radius.circular(AppDimensions.borderRadiusMedium),
@@ -163,9 +168,9 @@ class AppTheme {
         elevation: 1.0,
       ),
     ),
-    dividerColor: AppColors.lightGreen,
+    dividerColor: AppColors.green,
     dividerTheme: const DividerThemeData(
-      color: AppColors.lightGreen,
+      color: AppColors.green,
     ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: GoogleFonts.robotoTextTheme(
@@ -188,7 +193,7 @@ class AppTheme {
       enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             width: 1.5,
-            color: AppColors.lightGreen,
+            color: AppColors.green,
           ),
           borderRadius: BorderRadius.horizontal(
             left: Radius.circular(AppDimensions.borderRadiusMedium),
@@ -197,7 +202,7 @@ class AppTheme {
       border: const OutlineInputBorder(
           borderSide: BorderSide(
             width: 1.5,
-            color: AppColors.lightGreen,
+            color: AppColors.green,
           ),
           borderRadius: BorderRadius.horizontal(
             left: Radius.circular(AppDimensions.borderRadiusMedium),
@@ -219,8 +224,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(15),
         ),
         fixedSize: const Size.fromHeight(AppDimensions.buttonHeight),
-        foregroundColor: AppColors.lightGreen,
-        side: const BorderSide(color: AppColors.lightGreen),
+        foregroundColor: AppColors.green,
+        side: const BorderSide(color: AppColors.green),
       ),
     ),
     colorScheme: const ColorScheme.dark(
@@ -232,6 +237,9 @@ class AppTheme {
       tertiary: AppColors.white,
       shadow: AppColors.lightBlack,
       primaryContainer: AppColors.brown,
+      inverseSurface: AppColors.darkBlack,
+      onBackground: AppColors.darkBlack,
+      onSurface: AppColors.white,
 
       // primaryContainer: AppColors.amberAccent,
       secondaryContainer: AppColors.lightBlack,

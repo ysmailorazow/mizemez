@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Networking
-import '../../core/networking/custom_exception.dart';
+import '../networking/custom_exception.dart';
 
 part 'future_state.freezed.dart';
 

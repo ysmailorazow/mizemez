@@ -70,6 +70,11 @@ class AppAssets {
   static const inter = 'assets/images/inter.png';
   static const upper = 'assets/images/upper.png';
   static const advanced = 'assets/images/advanced.png';
+  static const photo = 'assets/images/photo.png';
+  static const carousel = 'assets/images/carousel.png';
+  static const carousel2 = 'assets/images/carousel2.png';
+  static const upload_icon = 'assets/icons/upload.svg';
+  static const edit_icon = 'assets/icons/editt.svg';
 
 
 

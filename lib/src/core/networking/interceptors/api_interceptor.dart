@@ -32,6 +32,8 @@ class ApiInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
+    options.headers.addAll({"Accept": "application/json"});
+
     if (options.extra.containsKey('requiresAuthToken')) {
       final token = await KeyValueStorageService().getAuthToken();
       if (token.isNotEmpty) {
@@ -39,7 +41,6 @@ class ApiInterceptor extends Interceptor {
           <String, Object?>{'Authorization': 'Bearer $token'},
         );
       }
-
       options.extra.remove('requiresAuthToken');
     }
     return handler.next(options);

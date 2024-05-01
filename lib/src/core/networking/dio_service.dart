@@ -102,7 +102,7 @@ class DioService {
   /// [options] are special instructions that can be merged with the request.
   Future<ResponseModel<R>> post<R>({
     required String endpoint,
-    dynamic data,
+    JSON? data,
     Options? options,
     CancelToken? cancelToken,
   }) async {

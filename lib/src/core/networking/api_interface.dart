@@ -33,7 +33,7 @@ abstract class ApiInterface {
     JSON? queryParams,
     CancelToken? cancelToken,
     bool requiresAuthToken = false,
-    required T Function(JSON? responseBody) converter,
+    required T Function(JSON responseBody) converter,
   });
 
   /// Base method for requesting a document of data from the [endpoint].
@@ -53,7 +53,7 @@ abstract class ApiInterface {
     JSON? queryParams,
     CancelToken? cancelToken,
     bool requiresAuthToken = false,
-    required T Function(JSON? responseBody) converter,
+    required T Function(JSON responseBody) converter,
   });
 
   /// Base method for inserting [data] at the [endpoint].
@@ -70,10 +70,30 @@ abstract class ApiInterface {
   /// in the **headers** of the request using an [ApiInterceptor]
   Future<T> setData<T>({
     required String endpoint,
-    required dynamic data,
+    required JSON data,
     CancelToken? cancelToken,
     bool requiresAuthToken = false,
-    required T Function(ResponseModel? response) converter,
+    required T Function(ResponseModel<JSON> response) converter,
+  });
+
+  /// Base method for updating [data] at the [endpoint].
+  ///
+  /// The response is deserialized into an object of type [T],
+  /// using the [converter] callback.
+  ///
+  /// The [data] contains body for the request.
+  ///
+  /// [cancelToken] is used to cancel the request pre-maturely. If null,
+  /// the **default** [cancelToken] inside [DioService] is used.
+  ///
+  /// [requiresAuthToken] is used to decide if a token will be inserted
+  /// in the **headers** of the request using an [ApiInterceptor]
+  Future<T> updateData<T>({
+    required String endpoint,
+    required JSON data,
+    CancelToken? cancelToken,
+    bool requiresAuthToken = false,
+    required T Function(ResponseModel<JSON> response) converter,
   });
 
   /// Base method for inserting [data] at the [endpoint].
@@ -96,26 +116,6 @@ abstract class ApiInterface {
     required T Function(ResponseModel? response) converter,
   });
 
-  /// Base method for updating [data] at the [endpoint].
-  ///
-  /// The response is deserialized into an object of type [T],
-  /// using the [converter] callback.
-  ///
-  /// The [data] contains body for the request.
-  ///
-  /// [cancelToken] is used to cancel the request pre-maturely. If null,
-  /// the **default** [cancelToken] inside [DioService] is used.
-  ///
-  /// [requiresAuthToken] is used to decide if a token will be inserted
-  /// in the **headers** of the request using an [ApiInterceptor]
-  Future<T> updateData<T>({
-    required String endpoint,
-    required JSON data,
-    CancelToken? cancelToken,
-    bool requiresAuthToken = false,
-    required T Function(ResponseModel? response) converter,
-  });
-
   /// Base method for deleting [data] at the [endpoint].
   ///
   /// The response is deserialized into an object of type [T],
@@ -128,12 +128,12 @@ abstract class ApiInterface {
   ///
   /// [requiresAuthToken] is used to decide if a token will be inserted
   /// in the **headers** of the request using an [ApiInterceptor]
-  Future<void> deleteData<T>({
+  Future<T> deleteData<T>({
     required String endpoint,
     JSON? data,
     CancelToken? cancelToken,
     bool requiresAuthToken = false,
-    required T Function(ResponseModel? response) converter,
+    required T Function(ResponseModel<JSON> response) converter,
   });
 
   /// Base method for cancelling requests pre-maturely

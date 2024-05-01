@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:group_button/group_button.dart';
+import 'package:x_market/src/features/register/presentation/widget/dropdown_widget.dart';
 import '../../../theme/constants/app_colors.dart';
 import '../../../utils/constants/app_assets.dart';
 
@@ -21,16 +23,16 @@ class _RateScreenState extends State<RateScreen> {
       body: DefaultTabController(
         length: 6,
         child: CustomScrollView(
+          shrinkWrap: true,
           slivers: <Widget>[
             SliverAppBar(
               backgroundColor: Theme.of(context).colorScheme.primary,
-              elevation: 1,
-              expandedHeight: 270,
+              expandedHeight: 270.h,
               floating: true,
               title: Image.asset(
                 AppAssets.logo_miz,
-                height: 60,
-                width: 150,
+                height: 60.h,
+                width: 150.w,
               ),
               actions: const [
                 Icon(
@@ -39,78 +41,71 @@ class _RateScreenState extends State<RateScreen> {
                 ),
               ],
               bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(0.0),
+                preferredSize:  Size.fromHeight(0.0.h),
                 child: Container(
-                  height: 30,
+                  height: 30.h,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.background,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
+                      borderRadius:  BorderRadius.only(
+                        topLeft: Radius.circular(30.r),
+                        topRight: Radius.circular(30.r),
                       )),
                 ),
               ),
               flexibleSpace: FlexibleSpaceBar(
-                stretchModes: const [
-                  StretchMode.blurBackground,
-                  StretchMode.zoomBackground
-                ],
                 background: CarouselSlider.builder(
                   itemCount: 3,
                   itemBuilder:
                       (BuildContext context, int index, int realIndex) {
                     return Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         color: Colors.amber,
                       ),
-                      width: 360,
+                      width: 330.w,
+                      height: 110.h,
                     );
                   },
                   options: CarouselOptions(
-                    height: 150,
+                    height: 150.h,
                     viewportFraction: 0.9,
                   ),
                 ),
-              ),
+               ),
             ),
             SliverToBoxAdapter(
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 color: Theme.of(context).colorScheme.background,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding:  EdgeInsets.symmetric(horizontal: 15.w),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Bölümlere görä derejeleri saýlap bilersiňiz.',
+                       Text('Bölümlere görä derejeleri saýlap bilersiňiz.',
                           style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16)),
-                      const SizedBox(
-                        height: 15,
+                              fontWeight: FontWeight.w600, fontSize: 16.sp)),
+                       SizedBox(
+                        height: 15.h,
                       ),
-                      const Text(
+                       Text(
                         'Welaýata görä',
                         style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400),
+                            fontSize: 15.sp, fontWeight: FontWeight.w400),
                       ),
-                      const SizedBox(
-                        height: 15,
+                       SizedBox(
+                        height: 15.h,
                       ),
-                      Container(
-                        color: AppColors.grey,
-                        height: 70,
-                        width: double.maxFinite,
+                     DropdownWidget(),
+                       SizedBox(
+                        height: 15.h,
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      const Text(
+                       Text(
                         'Iňlis dili derejesine görä',
                         style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400),
+                            fontSize: 15.sp, fontWeight: FontWeight.w400),
                       ),
                       const Align(
                         alignment: AlignmentDirectional.center,
@@ -119,7 +114,7 @@ class _RateScreenState extends State<RateScreen> {
                           tabAlignment: TabAlignment.start,
                           indicatorSize: TabBarIndicatorSize.tab,
                           indicatorWeight: 3,
-                          indicatorColor: AppColors.card_grey,
+                          indicatorColor: AppColors.transparent,
                           tabs: [
                             Tab(child: Text('Beginner')),
                             Tab(child: Text('Elementary')),
@@ -130,27 +125,29 @@ class _RateScreenState extends State<RateScreen> {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
-                      const Text(
+                       Text(
                         'Wagta görä saýlamak',
                         style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400),
+                            fontSize: 15.sp, fontWeight: FontWeight.w400),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       Align(
                         child: GroupButton(
                             options: GroupButtonOptions(
-                              borderRadius: BorderRadius.circular(15),
-                              buttonHeight: 30,
-                              buttonWidth: 100,
+                              unselectedColor: Theme.of(context).colorScheme.onBackground,
+                              unselectedTextStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                              borderRadius: BorderRadius.circular(15.r),
+                              buttonHeight: 30.h,
+                              buttonWidth: 100.w,
                               // crossGroupAlignment: CrossGroupAlignment.center,
                               // mainGroupAlignment: MainGroupAlignment.center,
                               // groupRunAlignment: GroupRunAlignment.spaceEvenly,
-                              spacing: 15,
+                              spacing: 15.sp,
                               direction: Axis.horizontal,
                             ),
                             buttons: const [
@@ -168,8 +165,8 @@ class _RateScreenState extends State<RateScreen> {
                               print('$value button is selected');
                             }),
                       ),
-                      const SizedBox(
-                        height: 20,
+                       SizedBox(
+                        height: 20.h,
                       ),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -208,11 +205,61 @@ class _RateScreenState extends State<RateScreen> {
                                   ),
                                 );
                               }),
-                          Text('data'),
-                          Text('data'),
-                          Text('data'),
-                          Text('data'),
-                          Text('data'),
+                          ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                return const Card(
+                                  child: ListTile(
+                                    title: Text('Amanow Amna'),
+                                    leading: Icon(Icons.person),
+                                    trailing: Text('70/80'),
+                                  ),
+                                );
+                              }),
+                          ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                return const Card(
+                                  child: ListTile(
+                                    title: Text('Amanow Amna'),
+                                    leading: Icon(Icons.person),
+                                    trailing: Text('70/80'),
+                                  ),
+                                );
+                              }),
+                          ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                return const Card(
+                                  child: ListTile(
+                                    title: Text('Amanow Amna'),
+                                    leading: Icon(Icons.person),
+                                    trailing: Text('70/80'),
+                                  ),
+                                );
+                              }),
+                          ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                return const Card(
+                                  child: ListTile(
+                                    title: Text('Amanow Amna'),
+                                    leading: Icon(Icons.person),
+                                    trailing: Text('70/80'),
+                                  ),
+                                );
+                              }),
+                          ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                return const Card(
+                                  child: ListTile(
+                                    title: Text('Amanow Amna'),
+                                    leading: Icon(Icons.person),
+                                    trailing: Text('70/80'),
+                                  ),
+                                );
+                              }),
                         ]),
                       )
                     ],

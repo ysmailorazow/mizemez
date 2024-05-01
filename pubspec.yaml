@@ -64,6 +64,9 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   group_button: ^5.3.4
   tabbed_sliverlist: ^0.1.0
+  dropdown_button2: ^2.3.9
+  flutter_screenutil: ^5.9.0
+  
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+
 import '../../../core/networking/api_endpoint.dart';
 import '../../../core/networking/api_service.dart';
 import '../../../core/typedefs.dart';
@@ -32,7 +33,7 @@ class AuthRepository {
         data: data,
         converter: (response) {
           updateTokenCallback(response.body['token'] as String);
-          return Account.fromJson(response.body['user']);
+          return Account.fromJson(response.body['data']);
         });
   }
 
@@ -41,7 +42,7 @@ class AuthRepository {
         endpoint: ApiEndpoint.auth(AuthEndpoint.BASE),
         requiresAuthToken: true,
         converter: (response) {
-          return Account.fromJson(response['me']);
+          return Account.fromJson(response['data']);
         });
   }
 }

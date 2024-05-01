@@ -45,6 +45,7 @@ class StateControlWidget extends StatelessWidget {
       controller: scrollController,
       slivers: [
         SliverAppBar(
+          backgroundColor:Theme.of(context).colorScheme.background,
           floating: true,
           // automaticallyImplyLeading: false,
           title: titleWidget ?? Text(title ?? ''),

@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 /// An enum that holds names for our custom exceptions.
 enum ExceptionType {
@@ -91,8 +92,8 @@ class CustomException implements Exception {
                 message: 'Authentication credentials were not provided.',
               );
             }
-            if (error.message.contains('CSRF token mismatch.')) {
-               return CustomException(
+            if (error.message.contains('Unauthenticated')) {
+              return CustomException(
                 exceptionType: ExceptionType.UnauthorizedException,
                 statusCode: error.response?.statusCode,
                 message: 'Authentication credentials were not provided.',
@@ -107,7 +108,7 @@ class CustomException implements Exception {
               return CustomException(
                 exceptionType: ExceptionType.FetchDataException,
                 statusCode: error.response?.statusCode,
-                message: 'No internet connectivity',
+                message: r'network_error'.tr,
               );
             }
             if (error.response?.data is String ||

@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
 import 'package:flutter/foundation.dart';
-import '../utils/path_provider_service.dart';
 import 'networking/interceptors/refresh_token_interceptor.dart';
+import '../utils/path_provider_service.dart';
 
 import 'networking/api_endpoint.dart';
 import 'networking/api_service.dart';
@@ -14,7 +14,7 @@ import 'networking/interceptors/logging_interceptor.dart';
 class Configs {
   const Configs._();
 
-  static const baseUrl = 'https://g.orienttm.org/api';
+  static const baseUrl = 'https://derman.com.tm/dermanhana/webq/api';
 }
 
 class ApiServices {

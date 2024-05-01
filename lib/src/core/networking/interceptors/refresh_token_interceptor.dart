@@ -20,7 +20,7 @@ class RefreshTokenInterceptor extends Interceptor {
 
   /// The name of the exception on which this interceptor is triggered.
   // ignore: non_constant_identifier_names
-  String get TokenExpiredException => 'token_expired';
+  String get TokenExpiredException => 'token_not_valid';
 
   /// This method is used to send a refresh token request if the error
   /// indicates an expired token.
@@ -45,9 +45,9 @@ class RefreshTokenInterceptor extends Interceptor {
       if (dioError.response!.data != null) {
         // final headers = dioError.response!.data['headers'] as JSON;
         if (dioError.response!.data is! String &&
-            dioError.response!.data.containsKey('error')) {
+            dioError.response!.data.containsKey('code')) {
           // Check error type to be token expired error
-          final code = dioError.response!.data['error'] as String;
+          final code = dioError.response!.data['code'] as String;
 
           if (code == TokenExpiredException) {
             // Make new dio and lock old one
@@ -60,7 +60,7 @@ class RefreshTokenInterceptor extends Interceptor {
             final kVStorageService = KeyValueStorageService();
             final currentUser = kVStorageService.getAuthUser();
             final data = {
-              'email': currentUser?.email,
+              'phone': currentUser?.phone,
               'password': await kVStorageService.getAuthPassword(),
             };
 
@@ -124,7 +124,7 @@ class RefreshTokenInterceptor extends Interceptor {
 
       if (success) {
         debugPrint('<-- END REFRESH');
-        return response.data?['token'] as String;
+        return response.data?['access'] as String;
       } else {
         throw Exception(response.data);
       }

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:x_market/src/features/home/controller/home_controller.dart';
+import 'package:x_market/src/features/iniatial/presentation/initial_screen.dart';
 import 'package:x_market/src/theme/constants/app_colors.dart';
 
 class GridContentWidget extends StatefulWidget {
@@ -28,33 +30,33 @@ class _GridContentWidgetState extends State<GridContentWidget> {
           itemBuilder: (BuildContext context, int index) {
             // final grids = controller.grid[index];
             return InkWell(
-              // onTap: () {
-              //   Get.toNamed(RateScreen.route,
-              //       arguments: {'grid_id': controller.grid[index].id});
-              // },
+              onTap: () {
+                Get.toNamed(InitialScreen.route);
+              },
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding:  EdgeInsets.all(10.r),
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(width: 0.7, color: AppColors.grey),
-                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 0.7.r, color: AppColors.grey),
+                    borderRadius: BorderRadius.circular(10.r),
                     color: Theme.of(context).colorScheme.background,
                   ),
-                  width: 150,
+                  width: 155.w,
+                  height: 210.h,
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: [
                       Positioned(
                         bottom: 8,
                         child: Container(
-                          width: 190,
-                          height: 100,
+                          width: 160.w,
+                          height: 120.h,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             color: Theme.of(context).colorScheme.background,
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding:  EdgeInsets.all(10.r),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,10 +79,10 @@ class _GridContentWidgetState extends State<GridContentWidget> {
                       Container(
                         width: double.maxFinite,
                         decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: AppColors.grey),
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            topLeft: Radius.circular(10),
+                          border: Border.all(width: 0.5.r, color: AppColors.grey),
+                          borderRadius:  BorderRadius.only(
+                            topRight: Radius.circular(10.r),
+                            topLeft: Radius.circular(10.r),
                           ),
                           color: controller.grid[index].boxColor,
                         ),
@@ -89,7 +91,7 @@ class _GridContentWidgetState extends State<GridContentWidget> {
                             Image(
                               image: AssetImage(controller.grid[index].image),
                               fit: BoxFit.contain,
-                              height: 100,
+                              height: 80.h,
                               width: double.maxFinite,
                             )
                           ],

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
+import '../../../../localization/controller/language_controller.dart';
+import '../../../../localization/localization_service.dart';
 import '../../../../theme/constants/app_dimensions.dart';
 import '../../../../theme/controller/theme_controller.dart';
 import 'profile_custom_list_tile.dart';
